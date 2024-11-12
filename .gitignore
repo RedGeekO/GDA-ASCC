@@ -14,14 +14,10 @@ dist/
 build/
 
 # Fichiers système
-.DS_Store
 Thumbs.db
 
 # Fichiers d'IDE/éditeurs
 .vscode/
-.idea/
-*.swp
-*.swo
 
 # Autres fichiers temporaires
 .tmp
