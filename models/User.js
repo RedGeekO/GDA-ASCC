@@ -1,5 +1,7 @@
+
+
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+const sequelize = require('../config/BDD'); // Assurez-vous que le chemin est correct
 
 const User = sequelize.define('User', {
   username: {
@@ -11,10 +13,20 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true,
+    validate: {
+      isEmail: true, // Validation pour s'assurer que l'email est au bon format
+    },
+  },
   role: {
     type: DataTypes.ENUM('admin', 'member'), // Rôles possibles
     allowNull: false,
+    defaultValue: 'member', // Valeur par défaut pour le rôle
   },
 });
 
+// Exporter le modèle User
 module.exports = User;
